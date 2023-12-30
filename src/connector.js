@@ -1,5 +1,5 @@
 
-var mysql = require('mysql2');
+var mysql = require('mysql2/promise');
 
 
 // var con = mysql.createConnection({
