@@ -24,4 +24,9 @@ pool.getConnection((err, conn) =>{
     console.log("connection establish with Database!!!")
 })
 
-module.exports = pool.promise()
+
+// Create a promise-based connection
+const promisePool = pool.promise();
+
+// Export the promise-based connection pool
+module.exports = promisePool;
