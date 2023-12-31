@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-const connection = require('./src/connector');
+const connection = require('./connector');
 
 // Use Express middleware for parsing URL-encoded and JSON data
 app.use(express.urlencoded({ extended: false }));
