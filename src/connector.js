@@ -1,14 +1,4 @@
-
-var mysql = require('mysql2');
-
-
-// var con = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "a",
-//     database: "test",
-//     multipleStatements: true
-// });
+const mysql = require('mysql2');
 
 const pool = mysql.createPool({
     host: "localhost",
@@ -18,12 +8,20 @@ const pool = mysql.createPool({
     multipleStatements: true
 });
 
+// Get a connection from the pool
+pool.getConnection((err, conn) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
 
-pool.getConnection((err, conn) =>{
-    if(err) console.log(err)
-    console.log("connection establish with Database!!!")
-})
+    console.log("Connection established with Database!!!");
 
+    // Perform your database operations using the 'conn' object here
+
+    // Release the connection back to the pool
+    conn.release();
+});
 
 // Create a promise-based connection
 const promisePool = pool.promise();
