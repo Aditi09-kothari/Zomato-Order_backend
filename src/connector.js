@@ -19,7 +19,6 @@ pool.getConnection((err, conn) => {
     console.log("Connection established with Database!!!");
 
     // Perform your database operations using the 'conn' object here
-
     // Release the connection back to the pool
     conn.release();
 });
